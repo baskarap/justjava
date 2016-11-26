@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -24,7 +25,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+        String title = titles.get(position);
+        holder.textTitle.setText(title);
     }
 
     @Override
@@ -34,8 +36,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        public TextView textTitle;
+
         public ViewHolder(View itemView) {
             super(itemView);
+            textTitle = (TextView) itemView.findViewById(R.id.text_item_name);
         }
     }
 }
