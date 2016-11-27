@@ -29,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String foodName = getIntent().getStringExtra("ITEM_NAME");
+
         initViews();
+        inputItemName.setText(foodName);
 
         itemQtt = 0;
         textItemQtt.setText(String.valueOf(itemQtt));
