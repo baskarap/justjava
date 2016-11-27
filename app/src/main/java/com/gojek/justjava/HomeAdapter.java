@@ -11,10 +11,12 @@ import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
-    private final List<String> titles;
+    private List<String> titles;
+    private OnItemClick onItemClick;
 
-    public HomeAdapter(List<String> titles) {
+    public HomeAdapter(List<String> titles, OnItemClick onItemClick) {
         this.titles = titles;
+        this.onItemClick = onItemClick;
     }
 
     @Override
@@ -24,9 +26,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         String title = titles.get(position);
         holder.textTitle.setText(title);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick.onClick(position);
+            }
+        });
     }
 
     @Override
