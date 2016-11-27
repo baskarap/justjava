@@ -73,13 +73,17 @@ public class MainActivity extends AppCompatActivity {
         String itemName = inputItemName.getText().toString();
 
         int price = DEFAULT_PRICE * itemQtt;
+        String message= "Harga: " + itemName;
         if (checkBoxItem1.isChecked()) {
             price += WHIPPED_CREAM_PRICE;
+            message += " + Whipped cream";
         }
         if (checkBoxItem2.isChecked()) {
             price += CHOCOLATE_PRICE;
+            message += " + Choco";
         }
+        message += ": Rp " + price;
 
-        Toast.makeText(this, "Harga: " + itemName + ": Rp " + price, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
